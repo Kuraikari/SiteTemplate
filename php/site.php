@@ -6,7 +6,7 @@ class Site(){
   public footer;
  
   
-  public Site(){
+  public __construct(){
     head = NULL;
     nav = NULL;
     content = NULL;

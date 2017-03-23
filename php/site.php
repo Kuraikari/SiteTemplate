@@ -1,5 +1,10 @@
 <?php
-public class Site(){
+require "sitestructure/head.php";
+require "sitestructure/nav.php";
+require "sitestructure/content.php";
+require "sitestructure/footer.php";
+
+public class Site{
     public $head;
     public $nav;
     public $content;

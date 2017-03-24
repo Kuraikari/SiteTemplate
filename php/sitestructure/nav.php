@@ -1,2 +1,6 @@
 <?php
+public class Nav{
+  
+}
+
 ?>

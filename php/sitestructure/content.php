@@ -1,12 +1,20 @@
 <?php
 public class Content{
     public $div;
-    public $text;
     public $content;
     
-    public function createContent(){
-        
+    public function createDiv($name = ""){
+        $div = "<div class='"+$name"'>"+$content+"</div>";
+        return $div;
     }
+    
+    public function createContent($isText, $text = ""){
+        if ($isText == true){
+            $content = "<p>"+$text+"/p>";
+        }
+        return $content
+    }
+    
     
 }
 

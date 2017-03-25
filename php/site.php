@@ -9,8 +9,12 @@ public class Site{
     public $nav;
     public $content;
     public $footer;
+    
+    public const $bodyStart = "<body>";
+    public const $bodyEnd = "</body>";
  
-  
+    public $site;
+    
     public __construct($head, $nav, $content, $footer){
         $this->head = $head;
         $this->nav = $nav;
@@ -19,9 +23,7 @@ public class Site{
     }
     
     public function createSite(){
-    
+        $site = "<html>" + $head + $bodyStart + $nav + $content + $footer + $bodyEnd + "</html>";
     }
-
-
 }
 ?>

@@ -4,6 +4,10 @@ public class Content{
     public $text;
     public $content;
     
+    public function createContent(){
+        
+    }
+    
 }
 
 ?>

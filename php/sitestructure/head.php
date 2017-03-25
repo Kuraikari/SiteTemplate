@@ -84,6 +84,7 @@ public class Meta{
 }
 
 public class Script{
+    public $type;
 
 }
 

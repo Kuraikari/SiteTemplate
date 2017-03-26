@@ -1,6 +1,6 @@
 <?php
-public static namespace Network{
-    public class Network{
+namespace SiteTemplate\Network{
+    public interface Network{
         public $connection;
         public $security;
         
@@ -9,6 +9,10 @@ public static namespace Network{
         }
         
         public function chooseSecurity(){
+            
+        }
+        
+        public function setStatements(){
             
         }
         

@@ -7,7 +7,7 @@ public class Head{
 
     public $head;
 
-    public __construct($css, $meta, $script){
+    public __construct(CSS $css, Meta $meta, string $script){
         $this->css = $css;
         $this->meta = $meta;
         $this->script = $script;
@@ -26,7 +26,7 @@ public class CSS{
 
     public  $css;
 
-    public __construct($path, $name, $type){
+    public __construct(string $path, string $name, string $type){
         $this->path = $path;
         $this->name = $name;
         $this->type = $type;
@@ -51,7 +51,7 @@ public class Meta{
 
     public $meta[] = array();
 
-    public __construct($author, $description, $charset){
+    public __construct(string $author, string $description, string $charset){
         $this->author = $author;
         $this->description = $description;
         $this->charset = $charset;
@@ -63,7 +63,6 @@ public class Meta{
         $meta[1] = "<meta name='author' content='"$author"' >";
         $meta[2] = "<meta name='description' content='"$description"' >";
         $meta[3] = "<meta name='keywords' content='"$keywords"' >";
-
     }
 
     //Creates the viewport by default.
@@ -80,12 +79,10 @@ public class Meta{
             array_push($keywords, $word);
         }
     }
-
 }
 
 public class Script{
     public $type;
-
 }
 
 ?>

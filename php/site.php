@@ -9,21 +9,23 @@ public class Site{
     public $nav;
     public $content;
     public $footer;
-    
+
     public const $bodyStart = "<body>";
     public const $bodyEnd = "</body>";
- 
-    public $site;
-    
+
+    public string $site;
+
     public __construct($head, $nav, $content, $footer){
         $this->head = $head;
         $this->nav = $nav;
         $this->content = $content;
-        $this->footer = $footer;  
+        $this->footer = $footer;
     }
-    
-    public function createSite(){
-        $site = "<html>" + $head + $bodyStart + $nav + $content + $footer + $bodyEnd + "</html>";
+
+    public function createSite(): string{
+        $this->site = "<html>" + $head + $bodyStart + $nav + $content + $footer + $bodyEnd + "</html>";
+        string $website = $this->site;
+        return $website;
     }
 }
 ?>

@@ -14,7 +14,7 @@ class SiteGenerator
       public $footer;
       public $site;
 
-      public function createSite()
+      public function createSite(): string
       {
         $head = new Head(new CSS("../css/style.css", "style.css", "text/stylesheet"), new Meta("Zian", "Test", "utf-8"));
         $nav = new Nav();

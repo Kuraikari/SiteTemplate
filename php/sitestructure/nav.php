@@ -1,15 +1,15 @@
 <?php
 class Nav{
     public $navElements = array();
-    public $nav;
-
-    public function createNav(){
-        $part1 = "<nav><ul>";
-        foreach($navElements as $element){
-            $part1 = $part1 . "<li><a href='$element.php'>$element</a></li>";
+    public function createNav() :string {
+        $nav = "";
+        $part = "<nav><ul>";
+        foreach($this->navElements as $element){
+            $part .= "<li><a href='$element.php'>$element</a></li>";
         }
-        $part1 = $part1 . "</nav></ul>";
-        $nav = $part1;
+
+        $part .= "</nav></ul>";
+        $nav = $part;
         return $nav;
     }
 
@@ -17,17 +17,17 @@ class Nav{
     {
         if(element3 == "" && element4 == "")
         {
-            array_push($navElements, $element1, $element2);
+            array_push($this->navElements, $element1, $element2);
         }
 
         elseif ($element4 == "")
         {
-            array_push($navElements, $element1, $element2, $element3);
+            array_push($this->navElements, $element1, $element2, $element3);
         }
 
         elseif (!($element2 == "") && !($element3 == "") &&  !($element4 == ""))
         {
-            array_push($navElements, $element1, $element2, $element3, $element4);
+            array_push($this->navElements, $element1, $element2, $element3, $element4);
         }
   }
 }

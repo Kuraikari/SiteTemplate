@@ -12,7 +12,7 @@ class Head {
     }
 
     public function createHead(){
-      $head = "<head>"+$css->createCSSWithoutType() . $meta->createMeta() ."</head>";
+      $head = "<head>"+$this->css->createCSSWithType() . $this->meta->createMeta() ."</head>";
       return $head;
     }
 }
@@ -25,7 +25,7 @@ class CSS{
 
     public  $css;
 
-    public function __construct(string $path, string $name, string $type){
+    public function __construct(string $path, string $name, string $type = ""){
         $this->path = $path;
         $this->name = $name;
         $this->type = $type;
@@ -36,7 +36,7 @@ class CSS{
     }
 
     public function createCSSWithType(){
-        return "<link rel='stylesheet' type='$type' href='$path/$name'>";
+        return "<link rel='stylesheet' type='". $this->type . "' href='" . $this->path . "/" . $this->name . "'>";
     }
 
 }
@@ -48,7 +48,7 @@ class Meta{
     public $description;
     public $keywords = array();
 
-    public $meta = array();
+    public $meta;
 
     public function __construct(string $author, string $description, string $charset){
         $this->author = $author;
@@ -58,18 +58,13 @@ class Meta{
 
     //Creates the meta part of the head.
     public function createMeta(){
-        $dataset = "";
-        $this->meta[0] = "<meta charset='$charset'>";
-        $this->meta[1] = "<meta name='author' content='$author' >";
-        $this->meta[2] = "<meta name='description' content='$description' >";
-        $this->meta[3] = "<meta name='keywords' content='$keywords' >";
-        $this->meta[4] = createViewport();
+        $this->meta .= "<meta charset='$this->charset'>";
+        $this->meta .= "<meta name='author' content='$this->author'>";
+        $this->meta .= "<meta name='description' content='$this->description'>";
+        $this->meta .= "<meta name='keywords' content='$this->keywords'>";
+        $this->meta .= $this->createViewport();
 
-        foreach ($this->meta as $data) {
-          $dataset .= $data;
-        }
-
-        return $dataset;
+        return $this->meta;
     }
 
     //Creates the viewport by default.

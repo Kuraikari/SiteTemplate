@@ -11,15 +11,16 @@ class Footer{
        return $information;
     }
 
-    public function createFooter($information){
+    public function createFooter(){
+        if ($information = "") {
+          $this->createInformation(); 
+        }
         $footer = "<footer>$information</footer>";
         return $footer;
     }
 
     public function __construct($author, $contactdata, $creator){
-      $this->$author = $author;
-      $this->contactdata = $contactdata;
-      $this->creator = $creator;;
+      $this->information = $this->createInformation($author, $contactdata, $creator);
     }
 }
 ?>

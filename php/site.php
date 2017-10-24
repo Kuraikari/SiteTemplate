@@ -2,16 +2,17 @@
 
 class Site{
     public function createSite($head, $nav, $content, $footer): string{
-      $bodyStart = "<body>";
-      $bodyEnd = "</body>";
+      error_reporting(0);
+      $bodySt = "<body>";
+      $bodyE = "</body>";
 
       $set = "";
       $set .= $head->createHead();
-      $set .= $bodyStart;
+      $set .= $bodySt;
       $set .= $nav->createNav();
       $set .= $content->createDiv($content->createContent(true, "Hello World"), "test");
       $set .= $footer->createFooter();
-      $set .= $bodyEnd;
+      $set .= $bodyE;
 
       $website = "<html>$set</html>";
       return $website;

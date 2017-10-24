@@ -12,7 +12,7 @@ class Head {
     }
 
     public function createHead(){
-      $head = "<head>"+$this->css->createCSSWithType() . $this->meta->createMeta() ."</head>";
+      $head = "<head>" . $this->css->createCSSWithType() . $this->meta->createMeta() ."</head>";
       return $head;
     }
 }
@@ -22,8 +22,6 @@ class CSS{
     public $path;
     public $name;
     public $type;
-
-    public  $css;
 
     public function __construct(string $path, string $name, string $type = ""){
         $this->path = $path;

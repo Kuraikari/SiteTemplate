@@ -1,8 +1,8 @@
 <?php
-require_once '/sitestructure/head.php';
-require_once '/sitestructure/content.php';
-require_once '/sitestructure/footer.php';
-require_once '/sitestructure/nav.php';
+require_once 'sitestructure/head.php';
+require_once 'sitestructure/content.php';
+require_once 'sitestructure/footer.php';
+require_once 'sitestructure/nav.php';
 require_once 'site.php';
 
 class SiteGenerator
@@ -16,8 +16,8 @@ class SiteGenerator
 
       public function createSite(): string
       {
-        $head = new Head(new CSS("../css/style.css", "style.css", "text/stylesheet"), new Meta("Zian", "Test", "utf-8"));
-        $nav = new Nav();
+        $head = new Head(new CSS("../css", "style.php", "text/css"), new Meta("Zian", "Test", "utf-8"));
+        $nav = new Nav("Home", "About us", "Touhou is Love");
         $content = new Content();
         $footer = new Footer("Kek", "Lol", "Haha");
         $site = new Site();

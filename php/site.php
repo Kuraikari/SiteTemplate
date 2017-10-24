@@ -9,7 +9,7 @@ class Site{
       $set = "";
       $set .= $head->createHead();
       $set .= $bodySt;
-      $set .= $nav->createNav();
+      $set .= $nav->navR;
       $set .= $content->createDiv($content->createContent(true, "Hello World"), "test");
       $set .= $footer->createFooter();
       $set .= $bodyE;

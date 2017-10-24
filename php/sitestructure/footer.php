@@ -1,18 +1,20 @@
 <?php
 class Footer{
-    public $information;
+    public $information = "";
     public $content;
 
-    public function createInformation($author, $contactdata, $creator){
-       $information = "<p>$author</p>"
+    public function createInformation($author, $contactdata, $creator): string {
+       $this->information = "<p>$author</p>"
                     . "<p>$contactdata</p>"
                     . "<p>Created by $creator</p>"
                     . "<p>Template made by Kuraikari</p>";
-       return $information;
+            
+        return $this->information;
     }
 
     public function createFooter(){
-        if ($information = "") {
+        $information = $this->information;
+        if (information == "") {
           $this->createInformation(); 
         }
         $footer = "<footer>$information</footer>";

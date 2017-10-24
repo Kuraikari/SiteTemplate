@@ -1,31 +1,19 @@
 <?php
-require "sitestructure/head.php";
-require "sitestructure/nav.php";
-require "sitestructure/content.php";
-require "sitestructure/footer.php";
 
-public class Site{
-    public $head;
-    public $nav;
-    public $content;
-    public $footer;
+class Site{
 
-    public const $bodyStart = "<body>";
-    public const $bodyEnd = "</body>";
 
-    public string $site;
+    public function createSite($head, $nav, $content, $footer): string{
+      $bodyStart = "<body>";
+      $bodyEnd = "</body>";
 
-    public __construct($head, $nav, $content, $footer){
-        $this->head = $head;
-        $this->nav = $nav;
-        $this->content = $content;
-        $this->footer = $footer;
-    }
+      $set = "";
+      $set .= $head->createHead();
+      $set .= $bodyStart;
 
-    public function createSite(): string{
-        $this->site = "<html>" + $head + $bodyStart + $nav + $content + $footer + $bodyEnd + "</html>";
-        string $website = $this->site;
-        return $website;
+
+      $website = "<html>$set</html>";
+      return $website;
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once("../php/generator.php");
-$site = new Generator();
-echo $site->site->createSite();
- ?>
+require 'php/sitegenerator.php';
+$lol = new SiteGenerator();
+$lol->createSite();
+?>

@@ -8,6 +8,7 @@ $meta = new Meta("Zian", "Test", "utf-8");
 
 //NAV
 $nav = new Nav("Home", "About us", "Touhou is Love");
+//$nav->addNewElements("Hello", "Test");
 
 //CONTENT
 $content = new Content(false, false, "test", "<input type='text' placeholder='Hello World'>");

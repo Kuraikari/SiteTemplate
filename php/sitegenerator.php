@@ -7,24 +7,10 @@ require_once 'site.php';
 
 class SiteGenerator
 {
-
-      public $head;
-      public $nav;
-      public $content;
-      public $footer;
-      public $site;
-
-      public function createSite(): string
-      {
-        $head = new Head(new CSS("../css", "style.php", "text/css"), new Meta("Zian", "Test", "utf-8"));
-        $nav = new Nav("Home", "About us", "Touhou is Love");
-        $content = new Content();
-        $footer = new Footer("Kek", "Lol", "Haha");
-        $site = new Site();
-
-        return $site->createSite($head, $nav, $content, $footer);
-      }
+    public function createSite($head, $nav, $content, $footer): string
+    {
+      $site = new Site();
+      return $site->createSite($head, $nav, $content, $footer);
     }
-
-
+}
 ?>

@@ -4,10 +4,10 @@ class Footer{
     public $content;
 
     public function createInformation($author, $contactdata, $creator): string {
-       $this->information = "<p>$author</p>"
-                    . "<p>$contactdata</p>"
-                    . "<p>Created by $creator</p>"
-                    . "<p>Template made by Kuraikari</p>";
+       $this->information = "<p>$author <br>"
+                    . "$contactdata <br>"
+                    . "Created by $creator"
+                    . "<pre>Template made by Kuraikari</pre></p>";
             
         return $this->information;
     }

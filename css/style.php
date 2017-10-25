@@ -1,24 +1,39 @@
 <?php require_once("../php/sitegenerator.php"); header("Content-type: text/css"); ?>
 
 html{
-    background-color: #fff;
+    background-color: rgba(120,120,190,1);
     font-family: Arial, sans-serif;
 }
 
 /* BODY */
 body {
-    width: 800px;
-    height: 600px;
-    position: absolute;
-    left: 20%;
-    background-color: #ddd;
+    margin: 0 auto;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(rgba(120,120,190,1) 25px, rgba(204,204,240,1));
+    border-radius: 2%;
+}
+
+.outer-wrapper{
+    height: 100%;
+    width: 45%;
+    position: relative;
+    top: 3%;
+    left: 25%;
+    border: 1.5px solid #557; 
+    border-radius: 1%;
+    background-color: white;
 }
 
 /* NAVIGATION BAR */
 nav {
-    width: 800px;
+    margin: 0 auto;
+    width: 100%;
     position: relative;
     top: 0.6%;
+    left: 12%;
     padding: 2px;
 }
 
@@ -32,6 +47,7 @@ nav ul li {
     float: left;
     position: relative;
     left: 1%;
+    overflow: hidden;
 }
 
 nav ul li:first-of-type a{
@@ -43,10 +59,9 @@ nav ul li:last-of-type a{
 }
 
 nav ul li a {
-    text-align: center;
     color: black;
-    display: block;
-    padding: 10px 95px;
+    display: inline-block;
+    padding: 15px 20px;
     background-color: #bbb;
     text-decoration: none;
 }
@@ -61,27 +76,36 @@ nav ul li a:hover {
 /* DIV */
 div {
     position: relative;
-    left: 12%;
+    left: 14%;
     top: 6%;
     width: 600px;
     height: 50px;
-
 }
 
 
 
 /* FOOTER */
 footer {
+    font-size: 12px;
     width: 100%;
-    background-color: #aaa;
+    background-color: #558;
     position: absolute;
     bottom: 0%;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 6px 40px black;
+}
+
+footer pre{
+    padding: 0 15px;
+    text-align: left;
+    text-shadow: 0 0 6px black;
 }
 
 /* CONTENT */
-div p {
+div p{
     padding: 10px 10px;
     position: relative;
     text-align: center;
-    background-color: #999
+    background-color: #bbd;
+    border-radius: 2px;
 }

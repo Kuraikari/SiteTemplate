@@ -7,10 +7,10 @@ require_once 'site.php';
 
 class SiteGenerator
 {
-    public function createSite($head, $nav, $content, $footer): string
+    public function createSite($head, $nav, $content, $footer, $useOuterWrapper = false, $outerWrapperClassName = ""): string
     {
       $site = new Site();
-      return $site->createSite($head, $nav, $content, $footer);
+      return $site->createSite($head, $nav, $content, $footer, $useOuterWrapper, $outerWrapperClassName);
     }
 }
 ?>

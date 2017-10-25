@@ -1,20 +1,20 @@
 <?php
 class Nav{
-    public $navElements = array();
+    public $navElements = [];
     public $navR = "";
 
 
-    public function __construct($element1 = "", $element2 = "", $element3 = "", $element4 = "") {
-        $part = "<nav><ul>";
+    public function __construct($element1 = "", $element2 = "", $element3 = "", $element4 = "", $class = "") {
+        $part = "<nav class='$class'><ul>";
         for($i = 0; $i <= count(func_get_args()); $i++){
-            if($i == 1) $part .= "<li><a href='$element1.php'>$element1</a></li>";
+            if($i == 1)      $part .= "<li><a href='$element1.php'>$element1</a></li>";
             else if($i == 2) $part .= "<li><a href='$element2.php'>$element2</a></li>";
             else if($i == 3) $part .= "<li><a href='$element3.php'>$element3</a></li>";
             else if($i == 4) $part .= "<li><a href='$element4.php'>$element4</a></li>";
             else if(count(func_get_args()) <= 0) break;
 
         }
-        $part .= "</nav></ul>";
+        $part .= "</ul></nav><br>";
         $this->navR = $part;
     }
 
@@ -25,25 +25,30 @@ class Nav{
             $part .= "<li><a href='$element.php'>$element</a></li>";
         }
 
-        $part .= "</nav></ul>";
+        $part .= "</ul></nav>";
         $nav = $part;
         return $nav;
     }
 
     public function addNewElements($element1, $element2 = "", $element3 = "", $element4 = "")
     {
+        $string = "";
         if($element2 == "" && $element3 == "" && $element4 == "")
         {
-            $pos = strrpos($this->navR, "</nav>");
+            $pos = strrpos($this->navR, "</ul>");
             $elements = "<li><a href='$element1.php'>$element1</a></li>";
-                      $this->navR = substr($elements, $pos, count($elements));
+            
+            $string .= substr_replace($this->navR, $elements, $pos, 0);
+            $this->navR = $string;
         }
         elseif($element3 == "" && $element4 == "")
         {
-            $pos = strrpos($this->navR, "</nav>");
+            
+            $pos = strrpos($this->navR, "</ul>");
             $elements = "<li><a href='$element1.php'>$element1</a></li>"
-                      ."<li><a href='$element2.php'>$element2</a></li>";
-            $this->navR = substr($elements, $pos, count($elements));
+                       ."<li><a href='$element2.php'>$element2</a></li>";
+            $string .= substr_replace($this->navR,$elements, $pos, 0);
+            $this->navR = $string;
         }
 
         elseif ($element4 == "")

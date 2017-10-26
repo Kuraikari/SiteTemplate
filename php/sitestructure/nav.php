@@ -4,8 +4,8 @@ class Nav{
     public $navR = "";
 
 
-    public function __construct($element1 = "", $element2 = "", $element3 = "", $element4 = "", $class = "") {
-        $part = "<nav class='$class'><ul>";
+    public function __construct($element1 = "", $element2 = "", $element3 = "", $element4 = "", $class = "nav") {
+        $part = "<div  class='$class''><nav><ul>";
         for($i = 0; $i <= count(func_get_args()); $i++){
             if($i == 1)      $part .= "<li><a href='$element1.php'>$element1</a></li>";
             else if($i == 2) $part .= "<li><a href='$element2.php'>$element2</a></li>";
@@ -14,18 +14,18 @@ class Nav{
             else if(count(func_get_args()) <= 0) break;
 
         }
-        $part .= "</ul></nav><br>";
+        $part .= "</ul></nav></div><br>";
         $this->navR = $part;
     }
 
     public function createNav() :string {
         $nav = "";
-        $part = "<nav><ul>";
+        $part = "<div class='nav'><nav><ul>";
         foreach($this->navElements as $element){
             $part .= "<li><a href='$element.php'>$element</a></li>";
         }
 
-        $part .= "</ul></nav>";
+        $part .= "</ul></nav></div>";
         $nav = $part;
         return $nav;
     }

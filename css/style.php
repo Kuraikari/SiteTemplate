@@ -1,4 +1,5 @@
 <?php require_once("../php/sitegenerator.php"); header("Content-type: text/css"); ?>
+<?php include("lightbox.php"); ?>
 
 html{
     background-color: rgba(120,120,190,1);
@@ -29,36 +30,41 @@ body {
 }
 
 /* NAVIGATION BAR */
-nav {
-    margin: 0 auto;
+.nav{
+    top: 1%;
+    position: absolute;
+    padding: 5px;
     width: 100%;
+    margin: 0 auto;
+}
+
+.nav nav {
     position: relative;
-    top: 1.1%;
-    left: 9%;
+    top: 1.5%;
     padding: 2px;
 }
 
-nav ul{
+.nav nav ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+.nav nav ul li {
     float: left;
     position: relative;
     overflow: hidden;
 }
 
-nav ul li:first-of-type a{
+.nav nav ul li:first-of-type a{
     border-radius: 20px 0 0 20px;
 }
 
-nav ul li:last-of-type a{
+.nav nav ul li:last-of-type a{
     border-radius: 0 20px 20px 0;
 }
 
-nav ul li a {
+.nav nav ul li a {
     color: black;
     display: inline-block;
     padding: 15px 1em;
@@ -66,7 +72,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
+.nav nav ul li a:hover {
     color: #353588;
     background: #88a;
     transition: 0.89s;
@@ -87,6 +93,7 @@ div {
   width: 95%;
   border-radius: 5%;
   text-align: left;
+  line-height: 1.5em;
 }
 
 .test > p{

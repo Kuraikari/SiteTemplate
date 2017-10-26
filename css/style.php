@@ -22,9 +22,10 @@ body {
     position: relative;
     top: 3%;
     left: 25%;
-    border: 1.5px solid #557; 
+    border: 1.5px solid #557;
     border-radius: 1%;
-    background-color: white;
+    background-color: #fff;
+    box-shadow: 0 0 1.1em #666;
 }
 
 /* NAVIGATION BAR */
@@ -32,8 +33,8 @@ nav {
     margin: 0 auto;
     width: 100%;
     position: relative;
-    top: 0.6%;
-    left: 12%;
+    top: 1.1%;
+    left: 9%;
     padding: 2px;
 }
 
@@ -46,7 +47,6 @@ nav ul{
 nav ul li {
     float: left;
     position: relative;
-    left: 1%;
     overflow: hidden;
 }
 
@@ -61,27 +61,54 @@ nav ul li:last-of-type a{
 nav ul li a {
     color: black;
     display: inline-block;
-    padding: 15px 20px;
-    background-color: #bbb;
+    padding: 15px 1em;
+    background-color: #99b;
     text-decoration: none;
 }
 
 nav ul li a:hover {
-    color: #304f32;
-    background: #c0c0c0;
+    color: #353588;
+    background: #88a;
+    transition: 0.89s;
 }
-
-
 
 /* DIV */
 div {
     position: relative;
     left: 14%;
     top: 6%;
-    width: 600px;
-    height: 50px;
+    width: 100%;
 }
 
+/* CONTENT */
+.test {
+  position: relative;
+  left: 2%;
+  width: 95%;
+  border-radius: 5%;
+  text-align: left;
+}
+
+.test > p{
+    padding: 5px 5px;
+    float: left;
+    width: 100%;
+    background-color: #bbd;
+    border-radius: 4px;
+}
+
+#form-test {
+    position: fixed;
+    background-color: #449;
+    text-align: center;
+    width: 250px;
+    height: 100px;
+    left: 30px;
+    padding-top: 40px;
+    padding-bottom: auto;
+    border-radius: 100%;
+    box-shadow: 0 0 3px 3px #336;
+}
 
 
 /* FOOTER */
@@ -96,16 +123,7 @@ footer {
 }
 
 footer pre{
-    padding: 0 15px;
     text-align: left;
-    text-shadow: 0 0 6px black;
-}
-
-/* CONTENT */
-div p{
-    padding: 10px 10px;
-    position: relative;
-    text-align: center;
-    background-color: #bbd;
-    border-radius: 2px;
+    padding: 5px;
+    text-shadow: 0 0 3px #336;
 }

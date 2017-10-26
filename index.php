@@ -9,13 +9,12 @@ $meta = new Meta("Zian", "Test", "utf-8");
 //NAV
 $nav = new Nav("Home", "About us", "Touhou");
 $nav->addNewElements("We could", "Need");
-$nav->addNewElements("Some", "Help");
 
 //CONTENT
 $content = new Content(false, false, "test");
 $content->appendContent(false, false, "<p>I want to die<br>", "new-test");
 $content->appendContent(false, false, "Test three is incoming<br></p>", "hashtag");
-$content->appendContent(true, false, "<input type='text' placeholder='My world'>", "test-form");
+$content->appendContent(false, false, "<div class='test-form'><input type='text' placeholder='Username'><br><input type='password' placeholder='Password'></div>");
 $content->addFormAndButton("form-test", "/action_page.php", "get", "Submit", "test-form");
 
 //FOOTER

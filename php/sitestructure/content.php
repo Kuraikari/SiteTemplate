@@ -25,16 +25,20 @@ class Content
         }
         $this->content .= $content;
     }
-    
+
     public function addFormAndButton($formName, $formAction, $formMethod, $buttonValue = "Submit", $div = ""){
-        $pos1 = strpos($this->content, "<div class='$div'>", 1);
-        $pos2 = strpos($this->content, "</div>", $pos1);
-        
+        $divPos = "<div class='$div'>";
+        $endPos = "</div><";
+        $pos1 = strpos($this->content, $divPos);
+        $pos2 = strpos($this->content, $endPos);
+
         $string = "";
-        $string = substr_replace($this->content, "<form action='$formAction' method='$formMethod' id='$formName'>", $pos2 ,0);
-        $string = substr_replace($string, "</form>", $pos2, 0);
-        $string = substr_replace($string, "<button type='submit' form='$formName' value='$buttonValue'>$buttonValue</button>", $pos2, 0);
-        
+        $string = substr_replace($this->content, "<form action='$formAction' method='$formMethod' id='$formName'>", $pos1 + strlen($divPos),0);
+        $string = substr_replace($string, "</form>", $pos2 + strlen($divPos), 0);
+
+        $pos3 = strpos($string, "</div>", 0);
+        $string = substr_replace($string, "<br><button type='submit' form='$formName' value='$buttonValue'>$buttonValue</button></div>", ($pos3), 0);
+
         $this->content = $string;
     }
 

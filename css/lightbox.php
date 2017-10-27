@@ -33,12 +33,12 @@
 /* Modal Content */
 .modal-content {
   position: absolute;
-  left: 25%;
+  left: 18%;
   background-color: #fefefe;
   margin: auto;
   padding: 0;
   width: 100%;
-  max-width: 1080px;
+  max-width: 800px;
 }
 
 /* The Close Button */
@@ -95,6 +95,8 @@
 /* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
+  background-color: rgba(0,0,0,0.3);
+  left: 0;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
@@ -112,8 +114,8 @@
 
 img.demo {
   opacity: 0.6;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 120px;
 }
 
 .active,

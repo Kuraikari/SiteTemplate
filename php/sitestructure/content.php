@@ -26,7 +26,7 @@ class Content
         $this->content .= $content;
     }
 
-    public function addFormAndButton($formName, $formAction, $formMethod, $buttonValue = "Submit", $div = ""){
+    public function addFormAndButton($formName, $formAction, $formMethod,$buttonValue = "Submit", $div = ""){
         $divPos = "<div class='$div'>";
         $endPos = "</div><";
         $pos1 = strpos($this->content, $divPos);
@@ -37,7 +37,7 @@ class Content
         $string = substr_replace($string, "</form>", $pos2 + strlen($divPos), 0);
 
         $pos3 = strpos($string, "</div>", 0);
-        $string = substr_replace($string, "<br><button type='submit' form='$formName' value='$buttonValue'>$buttonValue</button></div>", ($pos3), 0);
+        $string = substr_replace($string, "<br><button class='button' type='submit' form='$formName' value='$buttonValue'>$buttonValue</button></div>", ($pos3), 0);
 
         $this->content = $string;
     }
@@ -58,23 +58,23 @@ class Content
         $this->content .= "</div>";
       }
     }
-    
+
     public function appendGallery($source = "", $images = [], $modalName = "myModal"){
         $imgGrid = "<div class='row'>";
         foreach($images as $img => $index){
-            $imgGrid .= "<div class='column'><img src='$source/$index' onclick='openModal();currentSlide($img+1)' class='hover-shadow'></div>";
+            $imgGrid .= "<div class='column'><img src='$source/$index' onclick='openModal();currentSlide(" . intval($img+1) .")' class='hover-shadow'></div>";
         }
         $imgGrid .= "</div>";
-        
+
         $imgModal = "<div id='$modalName' class='modal'><span class='close cursor' onclick='closeModal()'>&times;</span><div class='modal-content'>";
         foreach($images as $img => $index){
-            $imgModal .= "<div class='mySlides'><div class='numberText'>$img+1 / ". count($images) 
+            $imgModal .= "<div class='mySlides'><div class='numberText'>" . intval($img+1) ." / ". count($images)
                         ."</div><img src='$source/$index' style='width:100%'></div>";
         }
         $imgModal .=     "<a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
                           <a class='next' onclick='plusSlides(1)'>&#10095;</a><div class='caption-container'><p id='caption'></p></div>";
         foreach($images as $img => $index){
-            $imgModal .= "<div class='column'><img class='demo' src='$source/$index' onclick='currentSlide($img+1)' alt='$index'></div>";
+            $imgModal .= "<div class='column'><img class='demo' src='$source/$index' onclick='currentSlide(" . intval($img+1) .")' alt='$index'></div>";
         }
         $imgModal .= "</div></div>";
         $imgGrid .= $imgModal;

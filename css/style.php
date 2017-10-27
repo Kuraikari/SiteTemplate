@@ -1,5 +1,5 @@
 <?php require_once("../php/sitegenerator.php"); header("Content-type: text/css"); ?>
-<?php include("lightbox.php"); ?>
+
 
 html{
     background-color: rgba(120,120,190,1);
@@ -33,6 +33,7 @@ body {
 .nav{
     top: 1%;
     position: absolute;
+    left: 35px;
     padding: 5px;
     width: 100%;
     margin: 0 auto;
@@ -104,19 +105,46 @@ div {
     border-radius: 4px;
 }
 
-#form-test {
-    position: fixed;
-    background-color: #449;
-    text-align: center;
-    width: 250px;
-    height: 100px;
-    left: 30px;
-    padding-top: 40px;
-    padding-bottom: auto;
-    border-radius: 100%;
-    box-shadow: 0 0 3px 3px #336;
+.test-form {
+  
 }
 
+#form-test {
+    position: fixed;
+    background-color: rgba(120,120,230,0.3);
+    display: block;
+    width: 250px;
+    height: 120px;
+    left: -200px;
+    padding-top: 40px;
+    padding-bottom: auto;
+    border-radius: 1%;
+    box-shadow: 0 0 3px 3px #336;
+    transition: 0.75s;
+}
+
+#form-test:hover {
+    left: 30px;
+}
+
+#form-test > input {
+    background: none;
+    border: 2px solid #559;
+    margin: 2px auto;
+}
+
+::-webkit-input-placeholder {
+    color: lightgrey;
+    padding: 3px;
+}
+
+#form-test > label{
+    display: block;
+    color: white;
+    transform: rotate(-90deg);
+}
+
+<?php include("lightbox.php"); ?>
 
 /* FOOTER */
 footer {
@@ -133,4 +161,21 @@ footer pre{
     text-align: left;
     padding: 5px;
     text-shadow: 0 0 3px #336;
+}
+
+/* BUTTONS INPUTS etc */
+.button{
+    color: white;
+    border: 2px solid #aaf;
+    margin-top: 12px;
+    background: none;
+    box-shadow: 0 0 1px 1px #66b;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.button:hover {
+  filter: hue-rotate(360deg);
 }

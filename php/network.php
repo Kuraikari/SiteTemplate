@@ -3,15 +3,19 @@ interface Network{
     public $connection;
     public $security;
 
-    public function createConnection(){
+    public static function createConnection($servername, $username, $password){
+        $this->connection = new mysqli($servername, $username, $password);
+        if ($this->connection->connect_error) {
+          die("Connection failed: " . $this->connection->connect_error);
+        }
+        echo "Connected successfully.";
+    }
+
+    public static function chooseSecurity(){
 
     }
 
-    public function chooseSecurity(){
-
-    }
-
-    public function setStatements(){
+    public static function setStatements(){
 
     }
 

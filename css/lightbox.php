@@ -12,7 +12,7 @@
 
 .column {
   width: 25%;
-  float: left;
+  display: inline-block;
   left: 0;
 }
 
@@ -27,7 +27,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0,0,5,0.9);
 }
 
 /* Modal Content */

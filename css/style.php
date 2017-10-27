@@ -106,25 +106,27 @@ div {
 }
 
 .test-form {
-  
+  position: fixed;
+  width: 250px;
+  height: 120px;
+  left: -17%;
+  padding-top: 40px;
+  padding-bottom: auto;
+  border-radius: 1%;
+  background-color: rgba(120,120,230,0.3);
+  display: inline-block;
+  box-shadow: 0 0 3px 3px #336;
+  transition: 0.75s;
 }
 
 #form-test {
-    position: fixed;
-    background-color: rgba(120,120,230,0.3);
-    display: block;
-    width: 250px;
-    height: 120px;
-    left: -200px;
-    padding-top: 40px;
-    padding-bottom: auto;
-    border-radius: 1%;
-    box-shadow: 0 0 3px 3px #336;
-    transition: 0.75s;
+    position: relative;
+    top: -20%;
+    left: 10%;
 }
 
-#form-test:hover {
-    left: 30px;
+.test-form:hover {
+    left: 2.5%;
 }
 
 #form-test > input {
@@ -138,10 +140,21 @@ div {
     padding: 3px;
 }
 
-#form-test > label{
+#form-test label{
+    position: absolute;
+    margin-left: 150px;
+    font-family: impact;
+    font-size: 18px;
     display: block;
     color: white;
+    bottom: 27%;
+    left: -7%;
     transform: rotate(-90deg);
+    letter-spacing: 11px;
+    width: 150px;
+    border: 1px dotted #33a;
+    text-indent: 35px;
+    text-transform: capitalize;
 }
 
 <?php include("lightbox.php"); ?>
@@ -177,5 +190,9 @@ footer pre{
 }
 
 .button:hover {
+  filter: hue-rotate(360deg);
+}
+
+.button:focus {
   filter: hue-rotate(360deg);
 }

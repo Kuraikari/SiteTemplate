@@ -8,14 +8,14 @@ class Footer{
                     . "$contactdata <br>"
                     . "Created by $creator"
                     . "<pre>Template made by Kuraikari</pre></p>";
-            
+
         return $this->information;
     }
 
     public function createFooter(){
         $information = $this->information;
-        if (information == "") {
-          $this->createInformation(); 
+        if ($information == "") {
+          $this->createInformation();
         }
         $footer = "<footer>$information</footer>";
         return $footer;

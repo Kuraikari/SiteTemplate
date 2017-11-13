@@ -1,5 +1,5 @@
 <?php
-interface Network{
+class Network{
     public $connection;
     public $security;
 

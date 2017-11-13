@@ -17,7 +17,7 @@ $content->appendContent(false, false, "<p>This is a site developed for entertain
 $content->appendContent(false, false, "Though we have a broad variety of products we aren't selling them on the market freely.<br>");
 $content->appendContent(false, false, "At the moment we are having a really busy day. The reason is that we get so many requests and our team are having their heads kept around creating new products.<br></p>");
 $content->appendContent(false, false, "<div class='test-form'><label>Login</label><br><input type='text' placeholder='Username'><br><input type='password' placeholder='Password'></div>");
-$content->addFormAndButton("form-test", "/action_page.php", "get", "Submit", "test-form");
+$content->addFormAndButton("form-test", "", "post", "Submit", "test-form");
 $content->appendGallery("ress/pictures", $pictures);
 
 //FOOTER

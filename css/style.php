@@ -31,18 +31,21 @@ body {
 
 /* NAVIGATION BAR */
 .nav{
-    top: 1%;
+    top: 0;
     position: absolute;
-    left: 35px;
+    left: 0;
     padding: 5px;
-    width: 100%;
+    width: 98.8%;
     margin: 0 auto;
+    background: repeating-linear-gradient(#99b, white 0.1%);
+    border-radius: 5px 5px 0px 0px;
 }
 
 .nav nav {
     position: relative;
     top: 1.5%;
     padding: 2px;
+    left: 20%;
 }
 
 .nav nav ul{
@@ -55,14 +58,17 @@ body {
     float: left;
     position: relative;
     overflow: hidden;
+    margin: 7px 0; 
 }
 
 .nav nav ul li:first-of-type a{
     border-radius: 20px 0 0 20px;
+    margin-left: 5px;
 }
 
 .nav nav ul li:last-of-type a{
     border-radius: 0 20px 20px 0;
+    margin-right: 5px;
 }
 
 .nav nav ul li a {
@@ -74,9 +80,9 @@ body {
 }
 
 .nav nav ul li a:hover {
-    color: #353588;
+    color: white;
     background: #88a;
-    transition: 0.89s;
+    transition: 0.3s;
 }
 
 /* DIV */

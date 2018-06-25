@@ -4,7 +4,7 @@ $lol = new SiteGenerator();
 $pictures = array("img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.jpg", "img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.jpg");
 
 //HEAD
-$css = new CSS("../css", "style.php", "text/css");
+$css = new CSS("css", "style.php", "text/css");
 $meta = new Meta("Zian", "Test", "utf-8");
 
 //NAV
@@ -13,7 +13,7 @@ $nav->addNewElements("Contact");
 
 //CONTENT
 $content = new Content(false, false, "test");
-$content->appendContent(false, false, "<p>This is a site developed for entertaining and similar things.<br>");
+$content->appendContent(false, false, "<p>This is a site developed for entertainment and similar things.<br>");
 $content->appendContent(false, false, "Though we have a broad variety of products we aren't selling them on the market freely.<br>");
 $content->appendContent(false, false, "At the moment we are having a really busy day. The reason is that we get so many requests and our team are having their heads kept around creating new products.<br></p>");
 $content->appendContent(false, false, "<div class='test-form'><label>Login</label><br><input type='text' placeholder='Username'><br><input type='password' placeholder='Password'></div>");

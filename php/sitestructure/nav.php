@@ -7,10 +7,10 @@ class Nav{
     public function __construct($element1 = "", $element2 = "", $element3 = "", $element4 = "", $class = "nav") {
         $part = "<div  class='$class''><nav><ul>";
         for($i = 0; $i <= count(func_get_args()); $i++){
-            if($i == 1)      $part .= "<li><a href='".mb_strtolower($element1).".php'>$element1</a></li>";
-            else if($i == 2) $part .= "<li><a href='".mb_strtolower($element2).".php'>$element2</a></li>";
-            else if($i == 3) $part .= "<li><a href='".mb_strtolower($element3).".php'>$element3</a></li>";
-            else if($i == 4) $part .= "<li><a href='".mb_strtolower($element4).".php'>$element4</a></li>";
+            if($i == 1)      $part .= "<li><a href='".join('', explode(' ', mb_strtolower($element1))).".php'>$element1</a></li>";
+            else if($i == 2) $part .= "<li><a href='".join('', explode(' ', mb_strtolower($element2))).".php'>$element2</a></li>";
+            else if($i == 3) $part .= "<li><a href='".join('', explode(' ', mb_strtolower($element3))).".php'>$element3</a></li>";
+            else if($i == 4) $part .= "<li><a href='".join('', explode(' ', mb_strtolower($element4))).".php'>$element4</a></li>";
             else if(count(func_get_args()) <= 0) break;
 
         }

@@ -77,6 +77,7 @@
   font-size: 20px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
+  border: solid black 1px;
   user-select: none;
 }
 
@@ -90,6 +91,7 @@
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+  border-color: rgba(0,0,0,0);
 }
 
 /* Number text (1/3 etc) */

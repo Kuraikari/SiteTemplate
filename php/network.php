@@ -1,11 +1,23 @@
 <?php
-class Network{
+
+class Network
+{
     protected $_connection;
     protected $_query;
     protected $_session;
     protected $_query_string;
 
     public $data;
+
+    public function __construct()
+    {
+        try {
+            $this->_connection = new PDO("", "", "");
+        } catch (PDOException $exception) {
+            // DO nothing. It should be like this
+        }
+        $this->_connection = null;
+    }
 
     /**
      * @param $target_ip
@@ -14,13 +26,13 @@ class Network{
      * @param string $password
      * @return $this
      */
-    public function create_Connection($target_ip, $target_db, $user, $password=""){
+    public function create_Connection($target_ip, $target_db, $user, $password = "")
+    {
         try {
             $this->_connection = new PDO("mysql:host=$target_ip;dbname=$target_db", $user, $password);
             $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
-        }
-        catch (PDOException $exception){
+            // echo "Connected successfully";
+        } catch (PDOException $exception) {
             echo "Connection failed" . $exception->getMessage();
             $this->_connection = null;
         }
@@ -31,31 +43,83 @@ class Network{
     /**
      * @param $table
      * @param string $columns
+     * @param string $where
+     * @param string $union
      * @return $this
      */
-    public function select_From($table, $columns="*"){
+    public function select_From($table, $columns = "*", $where = "true", $union = "")
+    {
         try {
-            $this->_query = $this->_connection->prepare("SELECT $columns FROM $table");
+            $this->_query = $this->_connection->prepare("SELECT $columns FROM $table WHERE $where $union");
             $this->_query->execute();
 
             $this->data = $this->_query->setFetchMode(PDO::FETCH_ASSOC);
-        }
-        catch (PDOException $exception){
+        } catch (PDOException $exception) {
             echo "Error: " . $exception->getMessage();
         }
         return $this;
     }
 
     /**
-     *
-     * @return this;
+     * @param $table
+     * @param string $columns
+     * @param string $where
+     * @return string
      */
-    public function close_Connection(){
-        if ($this->_connection != null){
+    public function add_Union_To_Select($table, $columns = "*", $where = "true")
+    {
+        return "UNION 
+                SELECT $columns FROM $table WHERE $where";
+    }
+
+    /**
+     * @param $table
+     * @param $values
+     * @param array $columns
+     * @return $this
+     */
+    public function insert_Into($table, $values, $columns = [])
+    {
+        $sql = "INSERT INTO $table (";
+        if ($columns == []) {
+            //
+        } else {
+            foreach ($columns as $column) {
+                $sql = $columns[sizeof($columns) - 1] === $column ? $sql . "$column)" : $sql . "$column, ";
+            }
+        }
+
+        $sql .= " VALUES ( ";
+        if ($values != []) {
+            foreach ($values as $value) {
+                if (is_string($value))
+                    $sql = $values[sizeof($values) - 1] === $value ? $sql . "'$value')" : $sql . "'$value', ";
+                else
+                    $sql = $values[sizeof($values) - 1] === $value ? $sql . "$value)" : $sql . "$value, ";
+            }
+        }
+
+        try {
+            $this->_query = $this->_connection->exec($sql);
+        } catch (PDOException $exception) {
+
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return $this;
+     */
+    public
+    function close_Connection()
+    {
+        if ($this->_connection != null) {
             $this->_connection = null;
         }
-        return this;
+        return $this;
     }
 
 }
+
 ?>

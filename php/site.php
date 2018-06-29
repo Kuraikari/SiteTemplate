@@ -16,7 +16,7 @@ class Site{
         $set .= $footer->createFooter();
         $set .= $bodyE;
 
-        $website = "<html>$set</html>";
+        $website = "<!DOCTYPE html><html>$set</html>";
         return $website;
     }
 }

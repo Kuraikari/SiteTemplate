@@ -19,7 +19,6 @@ class Nav{
     }
 
     public function createNav() :string {
-        $nav = "";
         $part = "<div class='nav'><nav><ul>";
         foreach($this->navElements as $element){
             $part .= "<li><a href='$element.php'>$element</a></li>";

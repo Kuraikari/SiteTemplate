@@ -3,10 +3,22 @@ class Content
 {
     public $content;
 
+    /**
+     * Content constructor.
+     * @param $isSingleDiv
+     * @param $isText
+     * @param string $name
+     * @param string $text
+     */
     public function __construct($isSingleDiv, $isText, $name = "", $text = ""){
         $this->createDiv($isSingleDiv, $this->createContent($isText, $text), $name);
     }
 
+    /**
+     * @param $isSingleDiv
+     * @param $content
+     * @param string $name
+     */
     public function createDiv($isSingleDiv, $content, $name = ""){
       if ($isSingleDiv) {
         $div = "<div class='$name'>$content</div>";
@@ -16,6 +28,10 @@ class Content
         $this->content .= $div;
     }
 
+    /**
+     * @param $isText
+     * @param string $text
+     */
     public function createContent($isText, $text = "") {
         $content = "";
         if ($isText == true){
@@ -26,13 +42,19 @@ class Content
         $this->content .= $content;
     }
 
-    public function addFormAndButton($formName, $formAction, $formMethod,$buttonValue = "Submit", $div = ""){
+    /**
+     * @param $formName
+     * @param $formAction
+     * @param $formMethod
+     * @param string $buttonValue
+     * @param string $div
+     */
+    public function addFormAndButton($formName, $formAction, $formMethod, $buttonValue = "Submit", $div = ""){
         $divPos = "<div class='$div'>";
         $endPos = "</div><";
         $pos1 = strpos($this->content, $divPos);
         $pos2 = strpos($this->content, $endPos);
 
-        $string = "";
         $string = substr_replace($this->content, "<form action='$formAction' method='$formMethod' id='$formName'>", $pos1 + strlen($divPos),0);
         $string = substr_replace($string, "</form>", $pos2 + strlen($divPos), 0);
 
@@ -42,6 +64,13 @@ class Content
         $this->content = $string;
     }
 
+    /**
+     * @param $isNewDiv
+     * @param $isText
+     * @param string $text
+     * @param string $name
+     * @param bool $endDiv
+     */
     public function appendContent($isNewDiv, $isText, $text = "", $name = "", $endDiv = false){
       if (!$isNewDiv)
       {
@@ -59,6 +88,11 @@ class Content
       }
     }
 
+    /**
+     * @param string $source
+     * @param array $images
+     * @param string $modalName
+     */
     public function appendGallery($source = "", $images = [], $modalName = "myModal"){
         $imgGrid = "<div class='row'>";
         foreach($images as $img => $index){
@@ -79,6 +113,16 @@ class Content
         $imgModal .= "</div></div>";
         $imgGrid .= $imgModal;
         $this->content .= $imgGrid;
+    }
+
+    /**
+     * @param mixed $content
+     * @return Content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+        return $this;
     }
 }
 

@@ -1,5 +1,19 @@
 <?php
-require 'php/sitegenerator.php';
+require_once 'php/sitegenerator.php';
+require_once 'php/network.php';
+
+/*$date = date_format(new DateTime(), "Y/m/d H:i:s");
+$date2 = date('Y/m/d H:i:s', strtotime('+1 seconds', strtotime($date)));
+$dates = [$date,$date2];*/
+
+//NETWORK
+$network = new Network();
+$network->create_Connection("localhost", "project_oop-template", "root", "")
+        // ->insert_Into("person", ["admin","Zian","Wermelinger","gibbiX12345", 1, $dates[0], $dates[1]], ["username", "firstname", "lastname", "password", "role_fk", "date_registered", "date_lastlogin"])
+
+;
+
+//SITE
 $lol = new SiteGenerator();
 $pictures = array("img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.jpg", "img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.jpg");
 

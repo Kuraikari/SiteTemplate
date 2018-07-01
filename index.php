@@ -6,10 +6,14 @@ require_once 'php/network.php';
 $date2 = date('Y/m/d H:i:s', strtotime('+1 seconds', strtotime($date)));
 $dates = [$date,$date2];*/
 
+
 //NETWORK
 $network = new Network();
 $network->create_Connection("localhost", "project_oop-template", "root", "")
         // ->insert_Into("person", ["admin","Zian","Wermelinger","gibbiX12345", 1, $dates[0], $dates[1]], ["username", "firstname", "lastname", "password", "role_fk", "date_registered", "date_lastlogin"])
+        ->select_From("person")
+        ->print_Query()
+        ->get_Data()
 
 ;
 

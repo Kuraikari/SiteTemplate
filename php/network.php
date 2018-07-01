@@ -47,10 +47,10 @@ class Network
      * @param string $union
      * @return $this
      */
-    public function select_From($table, $columns = "*", $where = "true", $union = "")
+    public function select_From($table, $columns = "*", $where = "id >= 1", $union = "")
     {
         try {
-            $this->_query = $this->_connection->prepare("SELECT $columns FROM $table WHERE $where $union");
+            $this->_query = $this->_connection->prepare("SELECT $columns FROM `$table` WHERE $where $union");
             $this->_query->execute();
 
             $this->data = $this->_query->setFetchMode(PDO::FETCH_ASSOC);
@@ -111,8 +111,7 @@ class Network
     /**
      * @return $this;
      */
-    public
-    function close_Connection()
+    public function close_Connection()
     {
         if ($this->_connection != null) {
             $this->_connection = null;
@@ -120,6 +119,16 @@ class Network
         return $this;
     }
 
+    public function print_Query(){
+       echo "<div style='position: sticky; left: 26.5%; top: 0;background: white; width: 800px; height: 70px; border: black solid 2px'>" . $this->_query->queryString . "</div>";
+       return $this;
+    }
+
+    public function get_Data(){
+        $variable = $this->data;
+        echo $variable[0];
+        return $this;
+    }
 }
 
 ?>

@@ -114,8 +114,9 @@ div {
 .test-form {
   position: fixed;
   width: 250px;
-  height: 120px;
-  left: -17%;
+  height: auto;
+  left: -198px;
+  top: 250px;
   padding-top: 40px;
   padding-bottom: auto;
   border-radius: 1%;
@@ -141,8 +142,16 @@ div {
     margin: 2px auto;
 }
 
+#form-test > input[type=file] {
+width: 0.1px;
+height: 0.1px;
+background: none;
+border: none;
+margin: 2px auto;
+}
+
 ::-webkit-input-placeholder {
-    color: lightgrey;
+    color: grey;
     padding: 3px;
 }
 
@@ -153,7 +162,7 @@ div {
     font-size: 18px;
     display: block;
     color: white;
-    bottom: 27%;
+    bottom: 50%;
     left: -7%;
     transform: rotate(-90deg);
     letter-spacing: 11px;

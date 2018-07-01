@@ -20,7 +20,7 @@ class Connection{
     }
 
     public function validate_Input(){
-        
+
     }
 
 /* Getters and Setters */

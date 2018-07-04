@@ -1,3 +1,2 @@
-# SiteTemplate
-This is my try to get a template for websites using PHP programmed in OOP.
-This is gonna be, like most of my things, a side project.
+# OOP-Site-Generator
+this is a oop based html generator for experimental purposes. it uses pdo for database connection. 

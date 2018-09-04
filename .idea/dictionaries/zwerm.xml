@@ -2,6 +2,7 @@
   <dictionary name="zwerm">
     <words>
       <w>doctype</w>
+      <w>sitegenerator</w>
     </words>
   </dictionary>
 </component>

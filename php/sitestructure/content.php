@@ -56,10 +56,12 @@ class Content
         $pos2 = strpos($this->content, $endPos);
 
         $string = substr_replace($this->content, "<form action='$formAction' method='$formMethod' id='$formName'>", $pos1 + strlen($divPos),0);
+        $pos3 = strpos($string, "</div>", 0);
+        $string = substr_replace($string, "<br><input name='submit' class='button' type='submit' form='$formName' value='$buttonValue'></div>", ($pos3), 0);
         $string = substr_replace($string, "</form>", $pos2 + strlen($divPos), 0);
 
-        $pos3 = strpos($string, "</div>", 0);
-        $string = substr_replace($string, "<br><input class='button' type='submit' form='$formName' value='$buttonValue'></div>", ($pos3), 0);
+
+
 
         $this->content = $string;
     }

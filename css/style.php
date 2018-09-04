@@ -6,7 +6,7 @@ html{
     font-family: Arial, sans-serif;
 }
 
-/* BODY */
+/******************** BODY */
 body {
     margin: 0 auto;
     position: fixed;
@@ -29,7 +29,7 @@ body {
     box-shadow: 0 0 1.1em #666;
 }
 
-/* NAVIGATION BAR */
+/******************** NAVIGATION BAR */
 .nav{
     top: 0;
     position: absolute;
@@ -85,7 +85,7 @@ body {
     transition: 0.3s;
 }
 
-/* DIV */
+/******************** DIV */
 div {
     position: relative;
     left: 14%;
@@ -93,7 +93,7 @@ div {
     width: 100%;
 }
 
-/* CONTENT */
+/******************** CONTENT */
 .test {
   position: relative;
   left: 2%;
@@ -174,7 +174,7 @@ margin: 2px auto;
 
 <?php include("lightbox.php"); ?>
 
-/* FOOTER */
+/******************* FOOTER */
 footer {
     font-size: 12px;
     width: 100%;
@@ -191,7 +191,7 @@ footer pre{
     text-shadow: 0 0 3px #336;
 }
 
-/* BUTTONS INPUTS etc */
+/******************* BUTTONS INPUTS etc */
 .button{
     color: white;
     border: 2px solid #aaf;
@@ -210,4 +210,20 @@ footer pre{
 
 .button:focus {
   filter: hue-rotate(360deg);
+}
+
+input[type=text], input[type=password] {
+    color: white;
+}
+
+/******************* DEBUGGING */
+
+.varDump {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: black;
+    color: white;
+    width: 200px;
+    height: auto;
 }

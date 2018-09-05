@@ -20,22 +20,30 @@ class Connection{
     }
 
     /**
-     * @param $column
+     * @param array $columns
      * @return $this
      */
-    public function validate_Input($column){
-        if (!empty($this->network->data[$column])) {
-            if (!empty($this->input)) {
-                if ($this->input[$column] ===$this->network->data[$column]){
-                    $this->isValidated = true;
-                    return $this;
+    public function validateInput($columns = []){
+        $counter = 0;
+        foreach ($columns as $column) {
+            if (empty($columns[$counter])) break;
+            if (!empty($this->network->data[$column])) {
+                if (!empty($this->input)) {
+                    if ($this->input[$columns[$counter]] === $this->network->data[$column] && $this->input[$columns[$counter+1]] === $this->network->data[$columns[$counter+1]]) {
+                        if (($counter+2) === sizeof($columns)) {
+                            $this->isValidated = true;
+                            $this->data = $this->network->data;
+                            return $this;
+                        }
+                    }
                 }
             }
+            $counter += 2;
         }
     }
 
 /* Debugging is fun kekeke */
-    public function get_Data($column = "username"){
+    public function getData($column = "username"){
         $variable = $this->input;
         echo "<div class='varDump'><pre>";
         var_dump( $variable[$column]);
@@ -74,14 +82,14 @@ class Connection{
     /**
      * @return mixed
      */
-    public function getData()
+    public function _getData()
     {
         return $this->data;
     }
     /**
      * @return mixed
      */
-    public function getInput()
+    public function _getInput()
     {
         return $this->input;
     }

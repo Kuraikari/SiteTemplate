@@ -9,10 +9,9 @@ html{
 /******************** BODY */
 body {
     margin: 0 auto;
-    position: fixed;
     width: 100%;
     left: 0;
-    height: 100%;
+    height: auto;
     background: linear-gradient(rgba(120,120,190,1) 25px, rgba(204,204,240,1));
     border-radius: 2%;
 }
@@ -179,8 +178,8 @@ footer {
     font-size: 12px;
     width: 100%;
     background-color: #558;
-    position: absolute;
-    bottom: 0%;
+    position: relative;
+    bottom: 0;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 6px 40px black;
 }
@@ -218,10 +217,8 @@ input[type=text], input[type=password] {
 
 /******************* DEBUGGING */
 
-.varDump {
-    position: sticky;
-    top: 0;
-    left: 0;
+div.varDump:nth-last-child(n+3),
+div.varDump:nth-last-child(n+3) ~ div.varDump {
     background: black;
     color: white;
     width: 200px;

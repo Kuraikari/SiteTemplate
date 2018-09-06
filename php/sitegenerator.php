@@ -5,6 +5,8 @@ require_once 'sitestructure/footer.php';
 require_once 'sitestructure/nav.php';
 require_once 'site.php';
 
+error_reporting(0);
+
 class SiteGenerator
 {
     public function createSite($head, $nav, $content, $footer, $useOuterWrapper = false, $outerWrapperClassName = ""): string

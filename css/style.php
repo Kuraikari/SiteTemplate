@@ -1,5 +1,9 @@
 <?php require_once("../php/sitegenerator.php"); header("Content-type: text/css"); ?>
 
+* {
+    box-sizing: border-box;
+
+}
 
 html{
     background-color: rgba(120,120,190,1);
@@ -31,10 +35,10 @@ body {
 /******************** NAVIGATION BAR */
 .nav{
     top: 0;
-    position: absolute;
+    position: relative;
     left: 0;
-    padding: 5px;
-    width: 98.8%;
+    padding: 10px;
+    width: 100%;
     margin: 0 auto;
     background: repeating-linear-gradient(#99b, white 0.1%);
     border-radius: 5px 5px 0px 0px;
@@ -44,7 +48,7 @@ body {
     position: relative;
     top: 1.5%;
     padding: 2px;
-    left: 20%;
+    margin-left: 35px;
 }
 
 .nav nav ul{
@@ -57,23 +61,23 @@ body {
     float: left;
     position: relative;
     overflow: hidden;
-    margin: 7px 0; 
+    margin: 9px 0;
 }
 
 .nav nav ul li:first-of-type a{
-    border-radius: 20px 0 0 20px;
+    border-radius: 25px 0 0 25px;
     margin-left: 5px;
 }
 
 .nav nav ul li:last-of-type a{
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 25px 25px 0;
     margin-right: 5px;
 }
 
 .nav nav ul li a {
     color: black;
     display: inline-block;
-    padding: 15px 1em;
+    padding: 20px 1em;
     background-color: #99b;
     text-decoration: none;
 }
@@ -94,12 +98,14 @@ div {
 
 /******************** CONTENT */
 .test {
-  position: relative;
-  left: 2%;
-  width: 95%;
-  border-radius: 5%;
-  text-align: left;
-  line-height: 1.5em;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 5%;
+    text-align: left;
+    line-height: 1.5em;
 }
 
 .test > p{
@@ -111,34 +117,51 @@ div {
 }
 
 .test-form {
-  position: fixed;
-  width: 250px;
-  height: auto;
-  left: -198px;
-  top: 250px;
-  padding-top: 40px;
-  padding-bottom: auto;
-  border-radius: 1%;
-  background-color: rgba(120,120,230,0.3);
-  display: inline-block;
-  box-shadow: 0 0 3px 3px #336;
-  transition: 0.75s;
+    position: fixed;
+    width: 250px;
+    height: 225px;
+    top: 250px;
+    left: -205px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    border-radius: 1%;
+    background-color: rgba(120,120,230,0.5);
+    box-shadow: 0 0 3px 3px #336;
+    transition: 0.75s;
 }
 
 #form-test {
     position: relative;
-    top: -20%;
-    left: 10%;
+    display: grid;
+    grid-template: 25% 25% 25% 1fr / 25% 50% 25%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 3px;
 }
 
-.test-form:hover {
+.test-form:hover,
+.test-form:focus-within {
     left: 2.5%;
+    width: 300px;
+    height: 260px;
 }
 
 #form-test > input {
     background: none;
+    padding: 5px;
     border: 2px solid #559;
-    margin: 2px auto;
+    margin: 3px auto;
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+#form-test > input[type=text] {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+#form-test > input[type=password] {
+    grid-area: 2 / 1 / 3 / 2;
 }
 
 #form-test > input[type=file] {
@@ -150,25 +173,25 @@ margin: 2px auto;
 }
 
 ::-webkit-input-placeholder {
-    color: grey;
+    color: white;
     padding: 3px;
 }
 
-#form-test label{
-    position: absolute;
-    margin-left: 150px;
+#form-test label {
+    grid-area: 3 / 1 / 4 / 4;
+    position: relative;
     font-family: impact;
     font-size: 18px;
-    display: block;
     color: white;
-    bottom: 50%;
-    left: -7%;
+    left: 120px;
+    bottom: 40px;
+    width: 85%;
     transform: rotate(-90deg);
     letter-spacing: 11px;
-    width: 150px;
-    border: 1px dotted #33a;
-    text-indent: 35px;
+    border: 2px dotted #33a;
+    text-indent: 25%;
     text-transform: capitalize;
+    line-height: 35px;
 }
 
 <?php include("lightbox.php"); ?>

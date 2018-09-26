@@ -194,7 +194,7 @@ margin: 2px auto;
     line-height: 35px;
 }
 
-<?php include("lightbox.php"); ?>
+<?php include("lightbox.css"); ?>
 
 /******************* FOOTER */
 footer {

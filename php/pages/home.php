@@ -42,7 +42,7 @@ if (isset($_POST["submit"])){
     $pictures = array("img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.jpg", "img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.jpg");
 
 //HEAD
-    $css = new CSS("../../css", "style.php", "text/css");
+    $css = new CSS("../../temp/assets/css", "temp_style.css", "text/css");
     $meta = new Meta("Zian", "Test", "utf-8");
 
 //NAV

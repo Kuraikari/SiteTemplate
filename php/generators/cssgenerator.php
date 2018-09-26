@@ -1,6 +1,5 @@
 <?php
-
-
+include_once ('generator.php');
 
 /**
  * CSSGenerator is class that inherits from the Generator model class
@@ -14,21 +13,22 @@
  * @access public
  * @see http://githb.com/kurailari/SiteTemplate
  */
-class CSSGenerator extends Generator
+class CSSGenerator extends CC_Generator
 {
     public $blocks;
+    public $imports;
     public $filePath;
     public $fileName;
 
     /**
-    * constructor
-    *
-    * @return CSSGenerator new Instance
-    * @access public
-    */
+     * constructor
+     *
+     * @access public
+     */
     function __construct()
     {
-        $blocks = [];
+        $this->blocks = [];
+        $this->imports = [];
     }
 
     /**
@@ -46,6 +46,16 @@ class CSSGenerator extends Generator
     }
 
     /**
+     * @param string $path
+     * @param string $file
+     * @return $this
+     */
+    public function addImport($path = "", $file = ""){
+        $this->imports[] = $path . '/' . $file;
+        return $this;
+    }
+
+    /**
     * to add a new block to the css
     *
     * @param string $name the name of the file
@@ -54,9 +64,7 @@ class CSSGenerator extends Generator
     * @access public
     */
     public function addBlock($name = "body", $properties = []) {
-        foreach ($properties as $property => $value) {
-            $blocks[(string)$name] = [(string)$property => (string)$value];
-        }
+        $this->blocks[(string)$name] = $properties;
         return $this;
     }
 
@@ -70,17 +78,22 @@ class CSSGenerator extends Generator
     public function generate()
     {
         $string = '';
-
-        foreach ($blocks as $key => $properties) {
-            $string .= "$key { \n";
-                foreach ($properties as $property => $value) {
-                    $string .= "$property: $value; \n";
-                }
-            $string .= "} \n"
+        foreach ($this->imports as $import) {
+            $string .= "@import url('$import');";
         }
-        $string .= "\n";
 
-        file_put_contents(dirname(__FILE__) . $this->filePath . '/' . $this->fileName, $string);
+        foreach ($this->blocks as $key => $properties) {
+            $string .= "$key {";
+                foreach ($properties as $property => $value) {
+                    $string .= "$property: $value;";
+                }
+            $string .= "}";
+        }
+        $string .= "";
+
+        chown($this->filePath, 'root');
+        chmod($this->filePath, 0750);
+        file_put_contents($this->filePath . '/' . $this->fileName, $string);
         return $this;
     }
 }

@@ -3,7 +3,7 @@
 /**
  *
  */
-class Generator
+abstract class CC_Generator
 {
     public static $id;
     public $type;

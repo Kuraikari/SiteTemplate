@@ -1,4 +1,6 @@
 <?php
+include_once 'css/stylegenerator.php';
+
 //require_once 'php/sitegenerator.php';
 //require_once 'php/network.php';
 //require_once 'php/connectivity/login.php';

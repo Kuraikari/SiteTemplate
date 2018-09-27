@@ -83,13 +83,13 @@ class CSSGenerator extends CC_Generator
         }
 
         foreach ($this->blocks as $key => $properties) {
-            $string .= "$key {";
+            $string .= "$key {" . "\r\n";
                 foreach ($properties as $property => $value) {
-                    $string .= "$property: $value;";
+                    $string .= "$property: $value;" . "\r\n";
                 }
             $string .= "}";
         }
-        $string .= "";
+        $string .=  "\r\n";
 
         chown($this->filePath, 'root');
         chmod($this->filePath, 0750);

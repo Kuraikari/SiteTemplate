@@ -1,7 +1,7 @@
 <?php
 
 class Site{
-    public function createSite($head, $nav, $content, $footer, $useOuterWrapper = false, $outerWrapperClassName = ""): string{
+    public function createSite($head, $nav, $content, $footer, $useOuterWrapper = false, $outerWrapperClassName = ""): string {
         error_reporting(0);
         $bodySt = "<body>";
         $bodyE = "</body>";

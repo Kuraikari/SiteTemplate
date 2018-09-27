@@ -13,8 +13,7 @@ include_once ('generator.php');
  * @access public
  * @see http://githb.com/kurailari/SiteTemplate
  */
-class CSSGenerator extends CC_Generator
-{
+class CSSGenerator extends CC_Generator {
     public $blocks;
     public $imports;
     public $filePath;
@@ -25,8 +24,7 @@ class CSSGenerator extends CC_Generator
      *
      * @access public
      */
-    function __construct()
-    {
+    function __construct() {
         $this->blocks = [];
         $this->imports = [];
     }
@@ -50,7 +48,7 @@ class CSSGenerator extends CC_Generator
      * @param string $file
      * @return $this
      */
-    public function addImport($path = "", $file = ""){
+    public function addImport($path = "", $file = "") {
         $this->imports[] = $path . '/' . $file;
         return $this;
     }
@@ -75,8 +73,7 @@ class CSSGenerator extends CC_Generator
     * @return CSSGenerator $this instance
     * @access public
     */
-    public function generate()
-    {
+    public function generate() {
         $string = '';
         foreach ($this->imports as $import) {
             $string .= "@import url('$import');";

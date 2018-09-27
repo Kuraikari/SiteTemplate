@@ -3,14 +3,12 @@
 /**
  *
  */
-abstract class CC_Generator
-{
+abstract class CC_Generator {
     public static $id;
     public $type;
     public $name;
 
-    function __construct()
-    {
+    function __construct() {
         $this::$id += 1;
     }
 

@@ -1,7 +1,6 @@
 <?php
 
-class Network
-{
+class Network {
     protected $_connection;
     protected $_query;
     protected $_session;
@@ -9,8 +8,7 @@ class Network
 
     public $data;
 
-    public function __construct()
-    {
+    public function __construct() {
         try {
             $this->_connection = new PDO("", "", "");
         } catch (PDOException $exception) {
@@ -26,8 +24,7 @@ class Network
      * @param string $password
      * @return $this
      */
-    public function create_Connection($target_ip, $target_db, $user, $password = "")
-    {
+    public function create_Connection($target_ip, $target_db, $user, $password = "") {
         try {
             $this->_connection = new PDO("mysql:host=$target_ip;dbname=$target_db", $user, $password);
             $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -47,8 +44,7 @@ class Network
      * @param string $union
      * @return $this
      */
-    public function selectFrom($table, $columns = "*", $where = "id >= 1", $union = "")
-    {
+    public function selectFrom($table, $columns = "*", $where = "id >= 1", $union = "") {
         try {
             $this->_query = $this->_connection->prepare("SELECT $columns FROM `$table` WHERE $where $union");
             $this->_query->execute();
@@ -67,8 +63,7 @@ class Network
      * @param string $where
      * @return string
      */
-    public function addUnionTo_Select($table, $columns = "*", $where = "true")
-    {
+    public function addUnionTo_Select($table, $columns = "*", $where = "true") {
         return "UNION SELECT $columns FROM $table WHERE $where";
     }
 
@@ -78,8 +73,7 @@ class Network
      * @param array $columns
      * @return $this
      */
-    public function insertInto($table, $values, $columns = [])
-    {
+    public function insertInto($table, $values, $columns = []) {
         $sql = "INSERT INTO $table (";
         if ($columns == []) {
             //
@@ -111,20 +105,19 @@ class Network
     /**
      * @return $this;
      */
-    public function closeConnection()
-    {
+    public function closeConnection() {
         if ($this->_connection != null) {
             $this->_connection = null;
         }
         return $this;
     }
 
-    public function printQuery(){
+    public function printQuery() {
        echo "<div style='position: sticky; left: 26.5%; top: 0;background: white; width: 800px; height: 70px; border: black solid 2px'>" . $this->_query->queryString . "</div>";
        return $this;
     }
 
-    public function getData($column = "id"){
+    public function getData($column = "id") {
         $variable = $this->data;
         echo "<div class='varDump'><pre>";
         var_dump( $variable[$column]);
